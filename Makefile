@@ -2,7 +2,7 @@
 
 SCRATCH_DIR := .scratch
 OUTPUT_DIR := output
-MARLIN_RELEASE := 2.0.9.1
+MARLIN_RELEASE := 2.0.9.2
 
 all: prepare get_configuration get_marlin apply_configuration build compile firmware
 default: all
@@ -42,6 +42,7 @@ apply_configuration:
 	sed -i bck 's|//#define LCD_BED_LEVELING|#define LCD_BED_LEVELING|' $(SCRATCH_DIR)/Marlin-$(MARLIN_RELEASE)/Marlin/Configuration.h
 	sed -i bck 's|#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }|#define NOZZLE_TO_PROBE_OFFSET { -42, -2, 0 }|' $(SCRATCH_DIR)/Marlin-$(MARLIN_RELEASE)/Marlin/Configuration.h
 	sed -i bck 's|//#define MULTIPLE_PROBING 2|#define MULTIPLE_PROBING 2|' $(SCRATCH_DIR)/Marlin-$(MARLIN_RELEASE)/Marlin/Configuration.h
+	sed -i bck 's|#define BLTOUCH_SET_5V_MODE|//#define #define BLTOUCH_SET_5V_MODE|' $(SCRATCH_DIR)/Marlin-$(MARLIN_RELEASE)/Marlin/Configuration_adv.h
 	sed -i bck 's|//#define BABYSTEP_ZPROBE_OFFSET|#define BABYSTEP_ZPROBE_OFFSET|' $(SCRATCH_DIR)/Marlin-$(MARLIN_RELEASE)/Marlin/Configuration_adv.h
 	sed -i bck 's|//#define PROBE_OFFSET_WIZARD|#define PROBE_OFFSET_WIZARD|' $(SCRATCH_DIR)/Marlin-$(MARLIN_RELEASE)/Marlin/Configuration_adv.h
 
