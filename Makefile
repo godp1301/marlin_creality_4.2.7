@@ -2,7 +2,7 @@
 
 SCRATCH_DIR := .scratch
 OUTPUT_DIR := output
-MARLIN_RELEASE := 2.0.9.2
+MARLIN_RELEASE := 2.0.9.3
 
 all: prepare get_configuration get_marlin apply_configuration build compile firmware
 default: all
